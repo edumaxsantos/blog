@@ -12,8 +12,7 @@ const BlogRoll = ({data}) => {
     month: 'short',
     day: 'numeric',
     hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric'
+    minute: 'numeric'
   }
 
   return (

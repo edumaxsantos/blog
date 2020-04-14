@@ -9,6 +9,7 @@ $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
+$footer-padding: 3rem 1.5rem 3rem
 
 .navbar .navbar-menu
   box-shadow:none !important
@@ -81,8 +82,10 @@ $black: #2b2523
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
-  padding: 3rem 0rem 0rem
+  //padding: 3rem 0rem 0rem
   background-color: transparent
+  flex-shrink: 0
+  
 
 //Menu overrides
 $menu-item-color: $white-ter
@@ -138,3 +141,13 @@ $menu-label-color: $white-ter
     text-align: center
     max-width: 70%
     margin: 0 0 1em
+
+
+.mainFlex
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+
+
+.section
+  flex: 1 0 auto

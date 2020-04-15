@@ -26,7 +26,7 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Navbar />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

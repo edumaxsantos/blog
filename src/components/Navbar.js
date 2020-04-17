@@ -1,74 +1,46 @@
-import React, {useState, useEffect} from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React, {useState} from "react";
+import { FaSun, FaMoon, FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { Link } from "gatsby";
 
+const Navbar = ({isDarkMode, changeMode}) => {
 
-const Navbar = () => {
-  const [active, setActive] = useState(false)
-  const [navBarActiveClass, setNavBarActiveClass] = useState('')
+  const icon = isDarkMode ? <FaSun /> : <FaMoon />;
+  const [index, setIndex] = useState(0);
 
+  const changeLeft = () => {
+    console.log(content)
+    if (index === 0)
+      setIndex(content.length - 1);
+    else
+      setIndex(index - 1);
+  };
 
-  useEffect(() => {
-    if(active) {
-      setNavBarActiveClass('is-active')
-    } else {
-      setNavBarActiveClass('')
-    }
-  }, [active])
+  const changeRight = () => {
+    if (index === content.length - 1)
+      setIndex(0);
+    else
+      setIndex(index + 1);
+  };
 
-  const toggleHamburger = () => setActive(!active)
+  const content = [
+    <Link className={`nav-item link ${index === 0 ? 'active-item': ''}`} to="/">Início</Link>,
+    <Link className={`nav-item link ${index === 1 ? 'active-item': ''}`} to="/">Blog</Link>,
+    <Link className={`nav-item link ${index === 2 ? 'active-item': ''}`} to="/">Portfólio</Link>,
+    <Link className={`nav-item link ${index === 3 ? 'active-item': ''}`} to="/">Contato</Link>,
+  ];
 
   return (
-    <nav
-      className="navbar"
-      role="navigation"
-      aria-label="main-navigation"
-    >
-      <div className="container">
-        <div className="navbar-brand">
-          <Link to="/" className="navbar-item" title="Logo">
-            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-          </Link>
-          {/* Hamburger menu */}
-          <div
-            className={`navbar-burger burger ${navBarActiveClass}`}
-            data-target="navMenu"
-            onClick={toggleHamburger}
-          >
-            <span />
-            <span />
-            <span />
-          </div>
+    <nav className="navbar">
+      <div className="nav-items">
+        <FaAngleLeft className="nav-item link nav-arrow" onClick={changeLeft} />
+        <div style={{width: '110px', textAlign: 'center'}}>
+          {content.map(item => item)}
         </div>
-        <div
-          id="navMenu"
-          className={`navbar-menu ${navBarActiveClass}`}
-        >
-          <div className="navbar-start has-text-centered">
-            <Link className="navbar-item" to="/blog">
-              Blog
-            </Link>
-            <Link className="navbar-item" to="/about">
-              Sobre
-            </Link>
-          </div>
-          <div className="navbar-end has-text-centered">
-            <a
-              className="navbar-item"
-              href="https://github.com/edumaxsantos"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="icon">
-                <img src={github} alt="Github" />
-              </span>
-            </a>
-          </div>
-        </div>
+        <FaAngleRight className="nav-item link nav-arrow" onClick={changeRight} />
       </div>
+      <div className="nav-item theme-changer" onClick={changeMode} >{icon}</div>
     </nav>
   )
-}
+};
 
-export default Navbar
+export default Navbar;

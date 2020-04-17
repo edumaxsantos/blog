@@ -1,34 +1,36 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
-import { withPrefix } from 'gatsby'
+import React, {useState, useEffect} from "react";
+import "./all.sass"
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from './theme';
+import { GlobalStyles } from './global';
 
-const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+import Navbar from "./Navbar";
+
+const Layout = ({ children }) => {
+
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    const l = localStorage.getItem('isDarkMode');
+    if (l !== isDarkMode.toString())
+      setIsDarkMode(!isDarkMode);
+  }, []);
+
+  const changeMode = () => {
+    localStorage.setItem('isDarkMode', !isDarkMode);
+    setIsDarkMode(!isDarkMode);
+  }
+
   return (
-    <div className="mainFlex">
-      <Helmet>
-        <html lang="en" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="theme-color" content="#fff" />
-
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content="/" />
-        <meta
-          property="og:image"
-          content={`${withPrefix('/')}img/og-image.jpg`}
-        />
-      </Helmet>
-      <Navbar />
-      {children}
-      {/* <Footer /> */}
-    </div>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <>
+        <GlobalStyles />
+        <Navbar isDarkMode={isDarkMode} changeMode={changeMode} />
+        {children}
+      </>
+    </ThemeProvider>
   )
-}
+};
 
-export default TemplateWrapper
+
+export default Layout;

@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
     const l = localStorage.getItem('isDarkMode');
     if (l !== isDarkMode.toString())
       setIsDarkMode(!isDarkMode);
-  }, []);
+  }, [isDarkMode]);
 
   const changeMode = () => {
     localStorage.setItem('isDarkMode', !isDarkMode);

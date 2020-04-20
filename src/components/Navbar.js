@@ -23,20 +23,20 @@ const Navbar = ({isDarkMode, changeMode}) => {
   };
 
   const content = [
-    <Link className={`nav-item link ${index === 0 ? 'active-item': ''}`} to="/">Início</Link>,
-    <Link className={`nav-item link ${index === 1 ? 'active-item': ''}`} to="/">Blog</Link>,
-    <Link className={`nav-item link ${index === 2 ? 'active-item': ''}`} to="/">Portfólio</Link>,
-    <Link className={`nav-item link ${index === 3 ? 'active-item': ''}`} to="/">Contato</Link>,
+    <Link className={`nav-item nav-link ${index === 0 ? 'active-item': ''}`} to="/">Início</Link>,
+    <Link className={`nav-item nav-link ${index === 1 ? 'active-item': ''}`} to="/blog/">Blog</Link>,
+    <Link className={`nav-item nav-link ${index === 2 ? 'active-item': ''}`} to="/">Portfólio</Link>,
+    <Link className={`nav-item nav-link ${index === 3 ? 'active-item': ''}`} to="/">Contato</Link>,
   ];
 
   return (
     <nav className="navbar">
       <div className="nav-items">
-        <FaAngleLeft className="nav-item link nav-arrow" onClick={changeLeft} />
-        <div style={{width: '110px', textAlign: 'center'}}>
+        <FaAngleLeft className="nav-item nav-link nav-arrow" onClick={changeLeft} />
+        <div className="nav-menu">
           {content.map(item => item)}
         </div>
-        <FaAngleRight className="nav-item link nav-arrow" onClick={changeRight} />
+        <FaAngleRight className="nav-item nav-link nav-arrow" onClick={changeRight} />
       </div>
       <div className="nav-item theme-changer" onClick={changeMode} >{icon}</div>
     </nav>

@@ -8,7 +8,8 @@ const Navbar = ({isDarkMode, changeMode, location }) => {
   const locationsTo = ['/', '/blog/', '/portfolio/', '/contact'];
 
   const findIndex = () => {
-    return locationsTo.indexOf(location.pathname);
+    const rootPath = location.pathname.match(/(\/\D*\/*).*/);
+    return locationsTo.findIndex((el) => rootPath[1] === el);
   };
 
   const icon = isDarkMode ? <FaSun /> : <FaMoon />;

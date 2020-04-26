@@ -113,6 +113,21 @@ rt {
   text-decoration: none;
 }
 
+.active-item {
+  color: ${({ theme }) => theme.hightlight};
+}
+
+.blog-post {
+  color: ${({ theme }) => theme.content};
+}
+
+.tag-list li {
+  background-color: ${({ theme }) => theme.hightlight};
+}
+.tag-list li a {
+  color: ${({ theme }) => theme.body};
+}
+
 @media only screen and (max-width: 600px) {
 
   :root {
@@ -139,6 +154,9 @@ rt {
   
   .theme-changer, .active-item {
     display: block;
+  }
+  .active-item {
+    color: ${({ theme }) => theme.content};
   }
 
   .nav-arrow {

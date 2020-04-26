@@ -78,5 +78,41 @@ select
   
 // -- END OF CSS RESET
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap')
+
+
+.blog-post
+  display: flex
+  margin: 1rem
+  flex-direction: column
+  align-items: center
+
+.title
+  margin-bottom: 0.5rem
+
+.description
+  font-size: 1.3rem
+  font-weight: lighter
+  margin-bottom: 2rem
+
+.tag-list 
+  display: flex
+  width: 50vw
+  justify-content: center
+  margin-bottom: 2rem !important
+
+  li 
+    border-radius: 5px
+    padding: 2px 5px
+    &:not(last-child)
+      margin-right: 20px
+  a
+    text-decoration: none
+
+.post-content
+  max-width: 70vw
+
+.post-content p
+  margin: 1.5rem 0
+  

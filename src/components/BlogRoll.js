@@ -84,3 +84,8 @@ export default () => (
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
 );
+
+
+export {
+  BlogRoll
+};

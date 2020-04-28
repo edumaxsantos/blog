@@ -12,6 +12,7 @@ body {
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 ruby[data-lang="jp"] {
@@ -126,6 +127,12 @@ rt {
 }
 .tag-list li a {
   color: ${({ theme }) => theme.body};
+}
+
+
+.tags-title {
+  color: ${({ theme }) => theme.content};
+  text-align: center;
 }
 
 @media only screen and (max-width: 600px) {

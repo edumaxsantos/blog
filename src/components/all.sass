@@ -82,11 +82,17 @@ select
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap')
 
 
+.section
+  width: 100vw
+  display: flex
+  justify-content: center
+
 .blog-post
   display: flex
   margin: 1rem
   flex-direction: column
   align-items: center
+  max-width: 70vw
 
 .title
   margin-bottom: 0.5rem
@@ -110,9 +116,9 @@ select
   a
     text-decoration: none
 
-.post-content
-  max-width: 70vw
 
 .post-content p
   margin: 1.5rem 0
   
+.tag-name
+  font-style: italic

@@ -12,8 +12,12 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     const l = localStorage.getItem('isDarkMode');
-    if (l !== isDarkMode.toString())
+    console.log("is this the problem?");
+    if (l !== isDarkMode.toString()) {
       setIsDarkMode(!isDarkMode);
+      localStorage.setItem('isDarkMode', !isDarkMode);
+    }
+      
   }, [isDarkMode]);
 
   const changeMode = () => {

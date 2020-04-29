@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql, StaticQuery, Link } from "gatsby";
+import Helmet from "react-helmet";
 
 const BlogRoll = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
@@ -18,9 +19,10 @@ const BlogRoll = ({ data }) => {
 
   return (
     <div className="blog-list">
+      <Helmet title="Blog" />
       {posts &&
         posts.map(({ node: post }) => (
-          <div className="" key={post.id}>
+          <div key={post.id}>
             <article className="blog-list-item">
               <header>
                 <p className="">

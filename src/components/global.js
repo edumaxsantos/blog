@@ -10,9 +10,13 @@ export const GlobalStyles = createGlobalStyle`
 
 body {
   background: ${({ theme }) => theme.body};
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.content};
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+}
+
+a {
+  color: ${({ theme }) => theme.hightlight}
 }
 
 ruby[data-lang="jp"] {
@@ -87,7 +91,7 @@ rt {
 
 .blog-list-item-datetime {
   font-size: 0.95rem;
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.content};
 
 }
 
@@ -131,6 +135,11 @@ rt {
 
 
 .tags-title {
+  color: ${({ theme }) => theme.content};
+  text-align: center;
+}
+
+.error-404 {
   color: ${({ theme }) => theme.content};
   text-align: center;
 }

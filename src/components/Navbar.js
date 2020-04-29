@@ -5,7 +5,7 @@ import { Location } from "@reach/router";
 
 const Navbar = ({isDarkMode, changeMode, location }) => {
 
-  const locationsTo = ['/', '/blog/', '/portfolio/', '/contact'];
+  const locationsTo = ['/', '/blog/']; //, '/portfolio/', '/contact'];
 
   const findIndex = () => {
     const rootPath = location.pathname.match(/(\/\D*\/*).*/);
@@ -48,8 +48,8 @@ const Navbar = ({isDarkMode, changeMode, location }) => {
   const content = [
     <Link key="0" className={`nav-item nav-link ${classIndex[0]}`} tabIndex="-1" to="/">Início</Link>,
     <Link key="1" className={`nav-item nav-link ${classIndex[1]}`} tabIndex="-1" to="/blog/">Blog</Link>,
-    <Link key="2" className={`nav-item nav-link ${classIndex[2]}`} tabIndex="-1" to="/">Portfólio</Link>,
-    <Link key="3" className={`nav-item nav-link ${classIndex[3]}`} tabIndex="-1" to="/">Contato</Link>,
+    /* <Link key="2" className={`nav-item nav-link ${classIndex[2]}`} tabIndex="-1" to="/">Portfólio</Link>,
+    <Link key="3" className={`nav-item nav-link ${classIndex[3]}`} tabIndex="-1" to="/">Contato</Link>, */
   ];
 
   return (

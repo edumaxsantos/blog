@@ -1,6 +1,5 @@
 import React from "react";
-import Helmet from "react-helmet";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { BlogRoll } from "../components/BlogRoll";
 import styled from "styled-components";
@@ -11,7 +10,7 @@ font-style: italic;
 
 
 const TagRoute = ({ data, pageContext }) => {
-  const posts = data.allMarkdownRemark.edges;
+  /* const posts = data.allMarkdownRemark.edges; */
   const { tag } = pageContext;
   const { totalCount } = data.allMarkdownRemark;
   return (

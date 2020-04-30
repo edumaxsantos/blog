@@ -21,7 +21,7 @@ const Index = () => {
       <Section>
         <P>
           Este site existe como forma de um{" "}
-          <a title="Building Digital Garden" target="_blank" href={digitalGarden}>
+          <a title="Building Digital Garden" target="_blank" rel="noopener noreferrer" href={digitalGarden}>
             jardim virtual
           </a>
           , onde posso publicar sobre assuntos que me interessam, como
@@ -37,7 +37,7 @@ const Index = () => {
         </P>
         <P>
           Para contato, pode me marcar ou mandar DM no{" "}
-          <a title="Meu perfil no twitter" href={twitter}>Twitter</a>
+          <a title="Meu perfil no twitter" target="_blank" rel="noopener noreferrer" href={twitter}>Twitter</a>
         </P>
       </Section>
       {/* <div>child</div>

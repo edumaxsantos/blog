@@ -12,10 +12,12 @@ const Navbar = styled.nav`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: ${({theme}) => theme.background};
   @media only screen and (max-width: 600px) {
     bottom: 0;
     position: fixed;
     align-items: center;
+    -webkit-backface-visibility: hidden;
   }
 `;
 
@@ -23,7 +25,7 @@ const NavItem = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
   margin-right: 5rem;
-  color: ${props => props.active ? props.theme.highlight : props.theme.content};
+  color: ${props => props.active === 'true' ? props.theme.highlight : props.theme.content};
   &:hover {
     color: ${({ theme }) => theme.highlight};
   }
@@ -31,7 +33,7 @@ const NavItem = styled(Link)`
 
 const FaHomeIcon = styled(FaHome)`
   display: none;
-  color: ${props => props.active ? props.theme.highlight : 'inherit'};
+  color: ${props => props.active === 'true' ? props.theme.highlight : 'inherit'};
 
   @media only screen and (max-width: 600px) {
     display: inline-block;
@@ -51,6 +53,7 @@ const FaBookIcon = styled(FaBook)`
   }
 `;
 
+
 export default ({ isDarkMode, changeMode }) => {
   const ThemeIcon = (props) =>
     isDarkMode ? <FaSun {...props} /> : <FaMoon {...props} />;
@@ -60,8 +63,8 @@ export default ({ isDarkMode, changeMode }) => {
   return (
     <Navbar>
       <div>
-        <NavItem active={pathname === '/'} to="/"><FaHomeIcon  />Início</NavItem>
-        <NavItem active={pathname.startsWith('/blog/')} to="/blog/"><FaBookIcon />Blog</NavItem>
+        <NavItem active={`${pathname === '/'}`} to="/"><FaHomeIcon  />Início</NavItem>
+        <NavItem active={`${pathname.startsWith('/blog/')}`} to="/blog/"><FaBookIcon />Blog</NavItem>
         {/* <NavItem to="/concact/">Contato</NavItem> */}
       </div>
       <ThemeIcon onClick={changeMode} />

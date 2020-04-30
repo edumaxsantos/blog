@@ -3,6 +3,11 @@ import Helmet from "react-helmet";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { BlogRoll } from "../components/BlogRoll";
+import styled from "styled-components";
+
+const Tag = styled.span`
+font-style: italic;
+`;
 
 
 const TagRoute = ({ data, pageContext }) => {
@@ -11,8 +16,7 @@ const TagRoute = ({ data, pageContext }) => {
   const { totalCount } = data.allMarkdownRemark;
   return (
     <Layout>
-      <h1 className="tags-title">Encontrada {totalCount} {totalCount === 1 ? 'publicação' : 'publicações'} com a tag <span className="tag-name">{tag}</span></h1>
-      <BlogRoll data={data} count={totalCount} />
+      <BlogRoll title={<>Encontrada {totalCount} {totalCount === 1 ? 'publicação' : 'publicações'} com a tag <Tag>{tag}</Tag></>} data={data} count={totalCount} />
     </Layout>
   );
 };

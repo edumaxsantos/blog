@@ -5,6 +5,40 @@ import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
+import styled from "styled-components";
+import Section from "../components/Section";
+
+const PostTitle = styled.h1`
+font-size: 1.3rem;
+margin-bottom: 0.3rem;
+`;
+
+const PostDescription = styled.p`
+font-size: 1.15rem;
+font-style: italic;
+`;
+
+const TagList = styled.ul`
+display: flex;
+justify-content: center;
+margin: 1rem 0 !important;
+`;
+
+const TagItem = styled.li`
+
+border-radius: 5px;
+padding: 0.2rem 0.5rem;
+background-color: ${({theme}) => theme.highlight};
+
+&:not(:last-child) {
+  margin-right: 0.5rem;
+}
+`;
+
+const LinkAsTag = styled(Link)`
+text-decoration: none;
+color: ${({theme}) => theme.background};
+`;
 
 export const BlogPostTemplate = ({
   content,
@@ -17,23 +51,23 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <Section>
       {helmet || ""}
       <div className="blog-post">
-        <h1 className="title">{title}</h1>
-        <p className="description">{description}</p>
+        <PostTitle className="title">{title}</PostTitle>
+        <PostDescription className="description">{description}</PostDescription>
         {tags && tags.length ? (
-          <ul className="tag-list">
+          <TagList>
             {tags.map((tag) => (
-              <li key={tag + `tag`}>
-                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-              </li>
+              <TagItem key={tag + `tag`}>
+                <LinkAsTag to={`/tags/${kebabCase(tag)}/`}>{tag}</LinkAsTag>
+              </TagItem>
             ))}
-          </ul>
+          </TagList>
         ) : null}
-        <PostContent className="post-content" content={content} />
+        <PostContent content={content} />
       </div>
-    </section>
+    </Section>
   );
 };
 

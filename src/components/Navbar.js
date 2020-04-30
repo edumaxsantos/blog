@@ -1,73 +1,70 @@
-import React, {useState, useEffect} from "react";
-import { FaSun, FaMoon, FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import React from "react";
+import { FaSun, FaMoon, FaHome, FaBook } from "react-icons/fa";
 import { Link } from "gatsby";
-import { Location } from "@reach/router";
+import styled from "styled-components";
+import { useLocation } from "@reach/router";
 
-const Navbar = ({isDarkMode, changeMode, location }) => {
+const Navbar = styled.nav`
+  display: flex;
+  padding: 1.5rem;
+  width: 100vw;
+  height: 3.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  @media only screen and (max-width: 600px) {
+    bottom: 0;
+    position: fixed;
+    align-items: center;
+  }
+`;
 
-  const locationsTo = ['/', '/blog/']; //, '/portfolio/', '/contact'];
+const NavItem = styled(Link)`
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 5rem;
+  color: ${props => props.active ? props.theme.highlight : props.theme.content};
+  &:hover {
+    color: ${({ theme }) => theme.highlight};
+  }
+`;
 
-  const findIndex = () => {
-    const rootPath = location.pathname.match(/(\/\D*\/*).*/);
-    return locationsTo.findIndex((el) => rootPath[1] === el);
-  };
+const FaHomeIcon = styled(FaHome)`
+  display: none;
+  color: ${props => props.active ? props.theme.highlight : 'inherit'};
 
-  const icon = isDarkMode ? <FaSun /> : <FaMoon />;
-  const [index, setIndex] = useState(findIndex());
-  const [classIndex, setClassIndex] = useState(['', '', '', '']);
+  @media only screen and (max-width: 600px) {
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+`;
 
-  const changeLeft = () => {
-    if (index === 0)
-      setIndex(content.length - 1);
-    else
-      setIndex(index - 1);
-  };
+const FaBookIcon = styled(FaBook)`
+  display: none;
 
-  const changeRight = () => {
-    if (index === content.length - 1)
-      setIndex(0);
-    else
-      setIndex(index + 1);
-  };
-
-
-  useEffect(() => {
-    const copyOfClassIndex = classIndex.map((item, i) => {
-      if (i === index)
-        return 'active-item';
-      return '';
-    });
-    
-    setClassIndex(copyOfClassIndex);
-  // eslint-disable-next-line
-  }, [index]);
   
+  @media only screen and (max-width: 600px) {
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+`;
 
-  
+export default ({ isDarkMode, changeMode }) => {
+  const ThemeIcon = (props) =>
+    isDarkMode ? <FaSun {...props} /> : <FaMoon {...props} />;
 
-  const content = [
-    <Link key="0" className={`nav-item nav-link ${classIndex[0]}`} tabIndex="-1" to="/">Início</Link>,
-    <Link key="1" className={`nav-item nav-link ${classIndex[1]}`} tabIndex="-1" to="/blog/">Blog</Link>,
-    /* <Link key="2" className={`nav-item nav-link ${classIndex[2]}`} tabIndex="-1" to="/">Portfólio</Link>,
-    <Link key="3" className={`nav-item nav-link ${classIndex[3]}`} tabIndex="-1" to="/">Contato</Link>, */
-  ];
+  const {pathname} = useLocation();
 
   return (
-    <nav className="navbar">
-      <div className="nav-items">
-        <FaAngleLeft className="nav-item nav-link nav-arrow" onClick={changeLeft} />
-        <div className="nav-menu">
-          {content.map(item => item)}
-        </div>
-        <FaAngleRight className="nav-item nav-link nav-arrow" onClick={changeRight} />
+    <Navbar>
+      <div>
+        <NavItem active={pathname === '/'} to="/"><FaHomeIcon  />Início</NavItem>
+        <NavItem active={pathname.startsWith('/blog/')} to="/blog/"><FaBookIcon />Blog</NavItem>
+        {/* <NavItem to="/concact/">Contato</NavItem> */}
       </div>
-      <div className="nav-item theme-changer" onClick={changeMode} role="button" tabIndex="-1" >{icon}</div>
-    </nav>
-  )
+      <ThemeIcon onClick={changeMode} />
+    </Navbar>
+  );
 };
-
-export default props => (
-  <Location>
-    {locationProps => <Navbar {...locationProps} {...props} />}
-    </Location>
-);

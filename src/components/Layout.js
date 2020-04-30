@@ -23,11 +23,13 @@ const Layout = ({ children }) => {
   const darkModeKey = "@eduardosantos.dev/isDarkMode";
 
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    return localStorage.getItem(darkModeKey) === "true" ? true : false;
+
+    return typeof window !== 'undefined' && window.localStorage.getItem(darkModeKey) === "true" ? true : false;
   });
 
   const changeMode = () => {
-    localStorage.setItem(darkModeKey, !isDarkMode);
+    if (typeof window !== 'undefined')
+      window.localStorage.setItem(darkModeKey, !isDarkMode);
     setIsDarkMode(!isDarkMode);
   };
 

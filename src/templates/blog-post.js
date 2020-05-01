@@ -25,19 +25,16 @@ margin: 1rem 0 !important;
 `;
 
 const TagItem = styled.li`
-
-border-radius: 5px;
-padding: 0.2rem 0.5rem;
-background-color: ${({theme}) => theme.highlight};
-
 &:not(:last-child) {
   margin-right: 0.5rem;
-}
-`;
+}`;
 
 const LinkAsTag = styled(Link)`
 text-decoration: none;
-color: ${({theme}) => theme.background};
+color: var(--bg);
+border-radius: 5px;
+padding: 0.2rem 0.5rem;
+background-color: var(--textLink);
 `;
 
 export const BlogPostTemplate = ({

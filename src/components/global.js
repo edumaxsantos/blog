@@ -2,18 +2,15 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
-
-
-
 body {
-  background: ${({ theme }) => theme.background};
-  color: ${({ theme }) => theme.content};
+  background: var(--bg);
+  color: var(--textNormal);
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
 }
 
 a {
-  color: ${({ theme }) => theme.highlight}
+  color: var(--textLink);
 }
 
 ruby[data-lang="jp"] {

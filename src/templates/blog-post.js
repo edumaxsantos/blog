@@ -7,21 +7,32 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import styled from "styled-components";
 import Section from "../components/Section";
+import { formattedDate } from "../utils/DateFormatter";
 
 const PostTitle = styled.h1`
-font-size: 1.3rem;
+font-size: 2rem;
 margin-bottom: 0.3rem;
+color: var(--textLink);
+text-decoration: none;
 `;
 
 const PostDescription = styled.p`
 font-size: 1.15rem;
 font-style: italic;
+font-weight: 300;
+`;
+
+const PublicationDate = styled.p`
+margin: 0.5rem 0;
+font-size: 0.90rem;
 `;
 
 const TagList = styled.ul`
 display: flex;
 justify-content: center;
-margin: 1rem 0 !important;
+margin-top: 1rem !important;
+padding-top: 1rem !important;
+border-top: 2px solid var(--bg2);
 `;
 
 const TagItem = styled.li`
@@ -43,16 +54,27 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
+  date,
   helmet,
 }) => {
   const PostContent = contentComponent || Content;
+
+
+  const StyledPostContent = styled(PostContent)`
+  margin: 2rem 0;
+  & p:not(:last-child) {
+    margin-bottom: 0.8rem;
+  }
+  `;
 
   return (
     <Section>
       {helmet || ""}
       <div className="blog-post">
-        <PostTitle className="title">{title}</PostTitle>
-        <PostDescription className="description">{description}</PostDescription>
+        <PostTitle>{title}</PostTitle>
+        <PostDescription>{description}</PostDescription>
+        <PublicationDate>Publicado em <span>{formattedDate(date)}</span></PublicationDate>
+        <StyledPostContent content={content} />
         {tags && tags.length ? (
           <TagList>
             {tags.map((tag) => (
@@ -62,7 +84,6 @@ export const BlogPostTemplate = ({
             ))}
           </TagList>
         ) : null}
-        <PostContent content={content} />
       </div>
     </Section>
   );
@@ -73,6 +94,7 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
+  date: PropTypes.string,
   helmet: PropTypes.object,
 };
 
@@ -96,6 +118,7 @@ const BlogPost = ({ data }) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        date={post.frontmatter.date}
       />
     </Layout>
   );
@@ -115,7 +138,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date
         title
         description
         tags

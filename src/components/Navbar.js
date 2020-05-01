@@ -18,6 +18,7 @@ const Navbar = styled.nav`
     position: fixed;
     align-items: center;
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 `;
 

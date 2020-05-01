@@ -13,6 +13,7 @@ const Navbar = styled.nav`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--bg);
   @media only screen and (max-width: 600px) {
     bottom: 0;
     position: fixed;

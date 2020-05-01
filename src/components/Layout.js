@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Helmet>
-        <meta name="viewport" content="minimum-scale=1 width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
       </Helmet>
       <GlobalStyles />
       <BasicLayout>

@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
 import Helmet from "react-helmet";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import styled from "styled-components";
 import Section from "../components/Section";
 import { formattedDate } from "../utils/DateFormatter";
+import Tag from "../components/Tag";
 
 const PostTitle = styled.h1`
 font-size: 2rem;
@@ -27,26 +27,6 @@ margin: 0.5rem 0;
 font-size: 0.90rem;
 `;
 
-const TagList = styled.ul`
-display: flex;
-justify-content: center;
-margin-top: 1rem !important;
-padding-top: 1rem !important;
-border-top: 2px solid var(--bg2);
-`;
-
-const TagItem = styled.li`
-&:not(:last-child) {
-  margin-right: 0.5rem;
-}`;
-
-const LinkAsTag = styled(Link)`
-text-decoration: none;
-color: var(--bg);
-border-radius: 5px;
-padding: 0.2rem 0.5rem;
-background-color: var(--textLink);
-`;
 
 export const BlogPostTemplate = ({
   content,
@@ -75,15 +55,7 @@ export const BlogPostTemplate = ({
         <PostDescription>{description}</PostDescription>
         <PublicationDate>Publicado em <span>{formattedDate(date)}</span></PublicationDate>
         <StyledPostContent content={content} />
-        {tags && tags.length ? (
-          <TagList>
-            {tags.map((tag) => (
-              <TagItem key={tag + `tag`}>
-                <LinkAsTag to={`/tags/${kebabCase(tag)}/`}>{tag}</LinkAsTag>
-              </TagItem>
-            ))}
-          </TagList>
-        ) : null}
+        <Tag tags={tags} />
       </div>
     </Section>
   );

@@ -36,6 +36,7 @@ text-decoration: none;
 
 const BlogRoll = ({ data, title }) => {
   const { edges: posts } = data.allMarkdownRemark;
+  console.log(posts);
 
   return (
     <Section>
@@ -90,6 +91,7 @@ export default () => (
                 title
                 templateKey
                 date
+                tags
               }
             }
           }

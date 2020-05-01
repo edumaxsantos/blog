@@ -2,6 +2,7 @@ import React from "react";
 import "./all.sass";
 import styled from "styled-components";
 import { GlobalStyles } from "./global";
+import Helmet from "react-helmet";
 
 import Navbar from "./Navbar";
 
@@ -21,6 +22,9 @@ const Container = styled.section`
 const Layout = ({ children }) => {
   return (
     <>
+      <Helmet>
+        <meta name="viewport" content="minimum-scale=1 width=device-width, initial-scale=1, shrink-to-fit=no" />
+      </Helmet>
       <GlobalStyles />
       <BasicLayout>
         <Navbar />

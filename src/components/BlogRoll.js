@@ -5,6 +5,8 @@ import Helmet from "react-helmet";
 import styled from "styled-components";
 import Section from "./Section";
 
+import { formattedDate } from "../utils/DateFormatter";
+
 const Post = styled.article`
 border-bottom: 1px solid #777;
 margin-bottom: 1rem;
@@ -27,25 +29,13 @@ text-align: justify;
 const PublicationDate = styled.p``;
 
 const Title = styled.h1`
-font-size: 1.2rem;
 text-align: center;
-font-weight: normal;
 margin-bottom: 2rem;
+text-decoration: none;
 `;
 
 const BlogRoll = ({ data, title }) => {
   const { edges: posts } = data.allMarkdownRemark;
-
-  const options = {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-  };
-
-  const formattedDate = (date) =>
-    Intl.DateTimeFormat("pt-BR", options).format(new Date(date));
 
   return (
     <Section>

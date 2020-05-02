@@ -10,23 +10,22 @@ import { formattedDate } from "../utils/DateFormatter";
 import Tag from "../components/Tag";
 
 const PostTitle = styled.h1`
-font-size: 2rem;
-margin-bottom: 0.3rem;
-color: var(--textLink);
-text-decoration: none;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  color: var(--textLink);
+  text-decoration: none;
 `;
 
 const PostDescription = styled.p`
-font-size: 1.15rem;
-font-style: italic;
-font-weight: 300;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 300;
 `;
 
 const PublicationDate = styled.p`
-margin: 0.5rem 0;
-font-size: 0.90rem;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
 `;
-
 
 export const BlogPostTemplate = ({
   content,
@@ -39,24 +38,23 @@ export const BlogPostTemplate = ({
 }) => {
   const PostContent = contentComponent || Content;
 
-
   const StyledPostContent = styled(PostContent)`
-  margin: 2rem 0;
-  & p:not(:last-child) {
-    margin-bottom: 0.8rem;
-  }
+    margin: 2rem 0;
+    & p:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
   `;
 
   return (
-    <Section>
+    <Section style={{ marginBottom: "2rem" }}>
       {helmet || ""}
-      <div className="blog-post">
-        <PostTitle>{title}</PostTitle>
-        <PostDescription>{description}</PostDescription>
-        <PublicationDate>Publicado em <span>{formattedDate(date)}</span></PublicationDate>
-        <StyledPostContent content={content} />
-        <Tag tags={tags} />
-      </div>
+      <PostTitle>{title}</PostTitle>
+      <PostDescription>{description}</PostDescription>
+      <PublicationDate>
+        Publicado em <span>{formattedDate(date)}</span>
+      </PublicationDate>
+      <StyledPostContent content={content} />
+      <Tag tags={tags} />
     </Section>
   );
 };

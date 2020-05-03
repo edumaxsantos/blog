@@ -5,6 +5,7 @@ date: 2020-04-12T23:13:15.266Z
 description: Minha primeira postagem neste blog
 tags:
 - first
+- hide
 ---
 # Propósito
 

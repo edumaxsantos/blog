@@ -13,7 +13,7 @@ indicando as diferenças e tentando explicar os motivos de tais diferenças com 
 
 ## Resumo do Cristianismo no Japão
 Os primeiros a espalharem o Cristianismo no Japão (são os primeiros com dados comprovados) são os portugueses que chegaram ao país
-oriental por volta de 1549. Após certo tempo, os cristãos passaram a ser perseguidos por Toyotomi Hideyoshi, que foi responsável pela morte de mais de 60 mil cristãos na terra do sol nascente. Em 1587 Hideyoshi baniu os missionários cristãos de Kyushu. Os cristãos restantes eram forçados a renunciar a fé que tinham (O filme <a href="https://pt.wikipedia.org/wiki/Sil%C3%AAncio_(filme)" target="_blank">Silêncio (2016)</a> retrata isso) retrata este período). Por volta de 1610 o shogunato Tokugawa começou a implementar leis parar banir o Cristianismo do país. Os cristãos só puderam voltar ao país após o início da era Meiji, que abriu o país para outros países.
+oriental por volta de 1549. Após certo tempo, os cristãos passaram a ser perseguidos por Toyotomi Hideyoshi, que foi responsável pela morte de mais de 60 mil cristãos na terra do sol nascente. Em 1587 Hideyoshi baniu os missionários cristãos de Kyushu. Os cristãos restantes eram forçados a renunciar a fé que tinham (O filme <a href="https://pt.wikipedia.org/wiki/Sil%C3%AAncio_(filme)" target="_blank">Silêncio (2016)</a> retrata este período). Por volta de 1610 o shogunato Tokugawa começou a implementar leis parar banir o Cristianismo do país. Os cristãos só puderam voltar ao país após o início da era Meiji, que abriu o país para outros países.
 
 # Nomes mais famosos
 A Bíblia possui dezenas de personagens, dentre eles encontramos pessoas incríveis como Abraão, José, Moisés, Rute etc., e o maior nome e personagem principal é Jesus.  

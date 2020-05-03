@@ -53,7 +53,7 @@ const BlogRoll = ({ data, title }) => {
             <Excerpt>{post.excerpt}</Excerpt>
             <footer>
               <PublicationDate>
-                Publicado em <span>{formattedDate(post.frontmatter.date)}</span>
+                Criado em <span>{formattedDate(post.frontmatter.date)}</span>
               </PublicationDate>
               <Link to={post.fields.slug}>Continue lendo →</Link>
             </footer>
@@ -77,8 +77,15 @@ export default () => (
     query={graphql`
       query BlogRollQuery {
         allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+          sort: { 
+            order: DESC, fields: [frontmatter___date] 
+          }
+          filter: { 
+            frontmatter: { 
+              templateKey: { eq: "blog-post" },
+              tags: {nin: "hide"}
+            } 
+          }
         ) {
           edges {
             node {

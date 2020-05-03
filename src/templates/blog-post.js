@@ -51,7 +51,7 @@ export const BlogPostTemplate = ({
       <PostTitle>{title}</PostTitle>
       <PostDescription>{description}</PostDescription>
       <PublicationDate>
-        Publicado em <span>{formattedDate(date)}</span>
+        Criado em <span>{formattedDate(date)}</span>
       </PublicationDate>
       <StyledPostContent content={content} />
       <Tag tags={tags} />

@@ -11,6 +11,7 @@ body {
   --textNormal: #2D2D2D;
   --textLink: #BF5CAA;
   --bg2: #BFBFBF;
+  --textLink2: #a5408f;
   background: var(--bg);
   color: var(--textNormal);
   font-family: 'Roboto', sans-serif;
@@ -22,12 +23,15 @@ body.dark {
   --bg: #2D2D2D;
   --textNormal: #EFEFEF;
   --textLink: #81C0FF;
+  --textLink2: rgba(129, 192, 255, 0.75);
   --bg2: #4D4D4D;
 }
 
 h1 {
   font-size: 1.5rem;
-  text-decoration-line: underline;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  color: var(--textLink2);
 }
 
 h2 {

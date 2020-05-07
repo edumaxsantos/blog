@@ -14,8 +14,11 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   background-color: var(--bg);
+  position: sticky;
+  top: 0;
   @media only screen and (max-width: 600px) {
     bottom: 0;
+    top: initial;
     position: fixed;
     align-items: center;
     -webkit-backface-visibility: hidden;

@@ -37,6 +37,8 @@ h1 {
 h2 {
   font-size: 1.2rem;
   text-decoration: underline;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 ul {
@@ -49,6 +51,10 @@ a {
 
 ruby[lang="jp"] {
   font-family: 'Noto Sans JP', sans-serif;
+}
+
+ruby[lang="ch"] {
+  font-family: 'Noto Sans SC', sans-serif;
 }
 
 rt {
@@ -64,6 +70,22 @@ blockquote {
   margin: 15px 15px 15px 0;
   padding-left: 15px;
   border-left: 5px solid var(--bg2);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+ border: 1px solid var(--textNormal);
+}
+
+th, td {
+  padding: 0.5rem;
+}
+
+th {
+  color: var(--textLink);
 }
 
 @media only screen and (max-width: 600px) {

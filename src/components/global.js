@@ -16,6 +16,7 @@ body {
   color: var(--textNormal);
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  font-size: 20px;
 }
 
 body.dark {
@@ -74,10 +75,12 @@ blockquote {
 
 table {
   border-collapse: collapse;
+  margin: 3rem auto;
 }
 
 table, th, td {
  border: 1px solid var(--textNormal);
+ border-radius: 25px;
 }
 
 th, td {
@@ -90,7 +93,7 @@ th {
 
 @media only screen and (max-width: 600px) {
   :root {
-    
+    font-size: 16px;
   }
 }
 `;

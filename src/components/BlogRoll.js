@@ -18,7 +18,7 @@ text-align: justify;
 `;
 
 const LinkAsTitle = styled(Link)`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   text-decoration: none;
 `;
 
@@ -26,12 +26,15 @@ const Excerpt = styled.p`
 text-align: justify;
 `;
 
-const PublicationDate = styled.p``;
+const PublicationDate = styled.p`
+margin-bottom: 0.5rem;
+`;
 
 const Title = styled.h1`
 text-align: center;
 margin-bottom: 2rem;
 text-decoration: none;
+font-size: 2.5rem;
 `;
 
 const BlogRoll = ({ data, title }) => {

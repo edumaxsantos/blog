@@ -8,6 +8,7 @@ import styled from "styled-components";
 import Section from "../components/Section";
 import { formattedDate } from "../utils/DateFormatter";
 import Tag from "../components/Tag";
+import PostDescription from "../components/PostDescription";
 
 const PostTitle = styled.h1`
   font-size: 2rem;
@@ -16,11 +17,6 @@ const PostTitle = styled.h1`
   text-decoration: none;
 `;
 
-const PostDescription = styled.p`
-  font-size: 1.15rem;
-  font-style: italic;
-  font-weight: 300;
-`;
 
 const PublicationDate = styled.p`
   margin: 0.5rem 0;
@@ -51,7 +47,7 @@ export const BlogPostTemplate = ({
       <PostTitle>{title}</PostTitle>
       <PostDescription>{description}</PostDescription>
       <PublicationDate>
-        Criado em <span>{formattedDate(date)}</span>
+        Publicado em: <span>{date}</span>
       </PublicationDate>
       <StyledPostContent content={content} />
       <Tag tags={tags} />
@@ -108,7 +104,7 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date
+        date(formatString: "DD/MM/YYYY - HH:mm")
         title
         description
         tags

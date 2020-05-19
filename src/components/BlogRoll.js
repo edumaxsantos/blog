@@ -4,8 +4,7 @@ import { graphql, StaticQuery, Link } from "gatsby";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 import Section from "./Section";
-
-import { formattedDate } from "../utils/DateFormatter";
+import PostDescription from "./PostDescription";
 
 const Post = styled.article`
 border-bottom: 1px solid #777;
@@ -52,11 +51,12 @@ const BlogRoll = ({ data, title }) => {
               <LinkAsTitle to={post.fields.slug}>
                 {post.frontmatter.title}
               </LinkAsTitle>
+              <PostDescription dangerouslySetInnerHTML={{__html: post.frontmatter.description}} />
             </PostHeader>
             <Excerpt>{post.excerpt}</Excerpt>
             <footer>
               <PublicationDate>
-                Criado em <span>{formattedDate(post.frontmatter.date)}</span>
+                Publicado em: <span>{post.frontmatter.date}</span>
               </PublicationDate>
               <Link to={post.fields.slug}>Continue lendo →</Link>
             </footer>
@@ -100,8 +100,9 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                date
+                date(formatString: "DD/MM/YYYY - HH:mm")
                 tags
+                description
               }
             }
           }

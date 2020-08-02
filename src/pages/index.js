@@ -5,7 +5,12 @@ import styled from "styled-components";
 import Section from "../components/Section";
 
 const P = styled.p`
-margin: 0.85rem 0;
+  margin: 0.85rem 0;
+`;
+
+const Intro = styled.h1`
+  font-size: 2.5rem;
+  font-style: oblique;
 `;
 
 const Index = () => {
@@ -19,21 +24,18 @@ const Index = () => {
         <title>Início</title>
       </Helmet>
       <Section>
+        <Intro>Opa, sou desenvolvedor, automatizador de testes, apreciador de idiomas e tentando escrever um blog.</Intro>
         <P>
-          Este site existe como forma de um{" "}
+          Tive interesse em criar esta página após ler sobre{" "}
           <a title="Building Digital Garden" target="_blank" rel="noopener noreferrer" href={digitalGarden}>
             jardim virtual
           </a>
-          , onde posso publicar sobre assuntos que me interessam, como
+          , onde poderia publicar sobre assuntos que me interessam, como
           tecnologia, idiomas e religião.
         </P>
         <P>
-          Aqui posso cultivar o conhecimento que vou adquirindo com o tempo,
-          além de publicar as minhas opiniões sobre o que eu quiser.
-        </P>
-        <P>
-          Ainda estou construindo o site. Faltam algumas coisas, mas já posso
-          começar a fazer publicações.
+          Aqui posso cultivar o conhecimento que venho adquirindo com o tempo, compartilhando o que aprendi e 
+          o que estou estudando no momento.
         </P>
         <P>
           Para contato, pode me marcar ou mandar DM no{" "}

@@ -7,11 +7,11 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  --bg: #E2E2E2;
+  --bg: #E4F2F0;
   --textNormal: #2D2D2D;
-  --textLink: #BF5CAA;
+  --textLink: #7FB983;
   --bg2: #BFBFBF;
-  --textLink2: #a5408f;
+  --textLink2: #83B582;
   background: var(--bg);
   color: var(--textNormal);
   font-family: 'Roboto', sans-serif;
@@ -48,6 +48,7 @@ ul {
 
 a {
   color: var(--textLink);
+  text-decoration-line: none;
 }
 
 ruby[lang="jp"] {
